@@ -1,0 +1,36 @@
+<p>pagination works!</p>
+<div *ngIf="showPageDetails">
+    <table>
+      <tr>
+        <td>
+          <b>SHOWING :</b>{{pageData?.start}} - {{pageData?.end}}<strong> OF </strong>{{pageData?.totalRecords}}
+        </td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <td>
+          <button [disabled]="currentPage === 1">
+            Previous
+          </button>
+        </td>
+        <td *ngFor="let pageNo of pageList">
+            <button (click)="pageTraversal($event,true)">{{pageNo}}</button>
+        </td>
+        <td *ngIf="showPageDetails">
+          <button (click)="nextClick($event,true)">Next</button>
+        </td>
+        <td>
+          <input type="number" placeholder=" GOTO|Enter Page No" [(ngModel)]="enteredPage"/>
+        </td>
+      </tr>
+    </table>
+    <!-- <ul>
+      <li>
+        <button [disabled]="currentPage === 1" [hidden]="pageCount < 0">
+          start
+        </button>
+      </li>
+      </ul><ul>
+      <li *ngFor="let pageNo of pageList">
+        <button (click)="pageTraversal()">{{pageNo}}</button>
+      </li>
+    </ul> -->
+
+</div>

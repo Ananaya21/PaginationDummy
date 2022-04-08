@@ -1,0 +1,25 @@
+<div>
+  <div><b>SHOWING :</b> {{ from }} - {{to }} of {{total }} Records</div>
+<tr>
+<td>
+  <button (click)="currentIndexUpdate(-1)">
+  Prev
+  </button>
+</td>
+  <td *ngFor="let page of displayArray">
+  <button (click)="currentIndexAssign(page)">{{page}}</button>
+  </td>
+<td>
+  <button class="button" (click)="currentIndexUpdate(1)">Next</button>
+</td>
+</tr>
+<div>
+  GOTO
+  <input
+  type="number"
+  placeholder="Enter Page Number"
+  [(ngModel)]="enterPageNo"
+  (keyup)="onEnterPress($event)"
+  >
+</div>
+</div>
